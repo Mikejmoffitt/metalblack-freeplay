@@ -11,7 +11,7 @@ INPUT_P2 = $100001
 ; $0100 when not in free play
 DIP_FREE = $100006
 
-ROM_FREE = $0BFD40
+ROM_FREE = $0BFD34
 
 FREEPLAY macro
 	move.w	d1, -(sp)
@@ -67,6 +67,7 @@ STANDARD macro
 
 ; --------------------------------------------------------------
 	ORG	ROM_FREE
+	ALIGN	2
 
 button_filter:
 	move.w	d0, -(sp)
@@ -274,3 +275,6 @@ alt_coin_check_loop:
 	trap	#5
 	bra	.standard_check_top
 
+
+	dc.b	"Free play and autofire hack by Michael Moffitt\nmikejmoffitt@gmail.com",0
+	ALIGN	2
